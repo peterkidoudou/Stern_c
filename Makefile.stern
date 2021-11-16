@@ -1,0 +1,7 @@
+all:
+	cd ./keccak-3.0 && $(MAKE)
+	cd ..
+	gcc -W -Wall -O3 -omit-frame-pointer -o stern main_stern.c pi.c \
+    ./keccak-3.0/KeccakSponge.o \
+    ./keccak-3.0/KeccakDuplex.o \
+    ./keccak-3.0/KeccakF-1600-opt64.o -I./keccak-3.0 -lrt
